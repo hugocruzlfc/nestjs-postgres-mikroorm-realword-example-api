@@ -8,10 +8,14 @@ import { NextFunction, Request, Response } from 'express';
 import { IUserData } from 'src/user/user.interface';
 import { UserService } from 'src/user/user.service';
 import jwt from 'jsonwebtoken';
+import { ConfigService } from 'src/config/config.service';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly configService: ConfigService,
+  ) {}
 
   async use(
     req: Request & { user?: IUserData & { id?: number } },
@@ -22,7 +26,7 @@ export class AuthMiddleware implements NestMiddleware {
 
     if (authHeaders && (authHeaders as string).split(' ')[1]) {
       const token = (authHeaders as string).split(' ')[1];
-      const decoded: any = jwt.verify(token, SECRET);
+      const decoded: any = jwt.verify(token, this.configService.get('SECRET'));
       const user = await this.userService.findById(decoded.id);
 
       if (!user) {

@@ -1,5 +1,8 @@
 import { ExecutionContext, createParamDecorator } from '@nestjs/common';
-import { SECRET } from '../config';
+import jwt from 'jsonwebtoken';
+import { ConfigService } from '../config/config.service';
+
+const SECRET = 'secret-key';
 
 export const User = createParamDecorator((data, ctx: ExecutionContext) => {
   const req = ctx.switchToHttp().getRequest();
