@@ -10,6 +10,7 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from './config/config.module';
 import { TagModule } from './tag/tag.module';
 import { ArticleModule } from './article/article.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ArticleModule } from './article/article.module';
     UserModule,
     TagModule,
     ArticleModule,
+    ProfileModule,
   ],
   controllers: [],
   providers: [],
