@@ -1,6 +1,5 @@
 import { ExecutionContext, createParamDecorator } from '@nestjs/common';
 import jwt from 'jsonwebtoken';
-import { ConfigService } from '../config/config.service';
 
 const SECRET = 'secret-key';
 

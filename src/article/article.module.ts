@@ -11,6 +11,7 @@ import { Article } from './article.entity';
 import { User } from '../user/user.entity';
 import { UserModule } from '../user/user.module';
 import { AuthMiddleware } from '../shared/middleware/auth.middleware';
+import { Comment } from './comment.entity';
 
 @Module({
   controllers: [ArticleController],

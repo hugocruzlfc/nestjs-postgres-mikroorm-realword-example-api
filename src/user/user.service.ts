@@ -7,7 +7,8 @@ import { CreateUserDto, LoginUserDto, UpdateUserDto } from './dto';
 import { User } from './user.entity';
 import { IUserRO } from './user.interface';
 import { UserRepository } from './user.repository';
-import { ConfigService } from 'src/config/config.service';
+import { ConfigService } from '@nestjs/config';
+import { EnvironmentVariables } from 'src/config';
 
 @Injectable()
 export class UserService {

@@ -7,15 +7,21 @@ import {
 import { MikroORM } from '@mikro-orm/core';
 import { MikroOrmMiddleware, MikroOrmModule } from '@mikro-orm/nestjs';
 import { UserModule } from './user/user.module';
-import { ConfigModule } from './config/config.module';
 import { TagModule } from './tag/tag.module';
 import { ArticleModule } from './article/article.module';
 import { ProfileModule } from './profile/profile.module';
+import { ConfigModule } from '@nestjs/config';
+import { configurations, validate } from './config';
 
 @Module({
   imports: [
     MikroOrmModule.forRoot(),
-    ConfigModule.register({ folder: './config-env' }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configurations],
+      cache: true,
+      validate,
+    }),
     UserModule,
     TagModule,
     ArticleModule,
