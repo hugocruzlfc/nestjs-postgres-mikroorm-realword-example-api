@@ -8,12 +8,14 @@ import { MikroORM } from '@mikro-orm/core';
 import { MikroOrmMiddleware, MikroOrmModule } from '@mikro-orm/nestjs';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from './config/config.module';
+import { TagModule } from './tag/tag.module';
 
 @Module({
   imports: [
     MikroOrmModule.forRoot(),
-    UserModule,
     ConfigModule.register({ folder: './config-env' }),
+    UserModule,
+    TagModule,
   ],
   controllers: [],
   providers: [],

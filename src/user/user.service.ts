@@ -3,17 +3,18 @@ import { validate } from 'class-validator';
 import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 import { EntityManager, wrap } from '@mikro-orm/core';
-import { SECRET } from '../config';
 import { CreateUserDto, LoginUserDto, UpdateUserDto } from './dto';
 import { User } from './user.entity';
 import { IUserRO } from './user.interface';
 import { UserRepository } from './user.repository';
+import { ConfigService } from 'src/config/config.service';
 
 @Injectable()
 export class UserService {
   constructor(
     private readonly userRepository: UserRepository,
     private readonly em: EntityManager,
+    private readonly configService: ConfigService,
   ) {}
 
   async findAll(): Promise<User[]> {
@@ -106,7 +107,7 @@ export class UserService {
         id: user.id,
         username: user.username,
       },
-      SECRET,
+      this.configService.get('SECRET'),
     );
   }
 
