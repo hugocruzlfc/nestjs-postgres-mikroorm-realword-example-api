@@ -11,8 +11,9 @@ import {
   Property,
   wrap,
 } from '@mikro-orm/core';
-import { Article } from '../article/article.entity';
+
 import { UserRepository } from './user.repository';
+import { Article } from '../article/article.entity';
 
 @Entity({ repository: () => UserRepository })
 export class User {

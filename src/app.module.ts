@@ -9,6 +9,7 @@ import { MikroOrmMiddleware, MikroOrmModule } from '@mikro-orm/nestjs';
 import { UserModule } from './user/user.module';
 import { ConfigModule } from './config/config.module';
 import { TagModule } from './tag/tag.module';
+import { ArticleModule } from './article/article.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { TagModule } from './tag/tag.module';
     ConfigModule.register({ folder: './config-env' }),
     UserModule,
     TagModule,
+    ArticleModule,
   ],
   controllers: [],
   providers: [],
