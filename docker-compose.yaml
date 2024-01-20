@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  realword_app:
+    image: postgres:latest
+    container_name: api_postgres_mikroorm_nestjs
+    environment:
+      POSTGRES_DB: realword_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - realword_app_data:/var/lib/postgresql/data
+
+volumes:
+  realword_app_data:
