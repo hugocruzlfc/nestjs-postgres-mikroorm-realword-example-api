@@ -6,9 +6,10 @@ import {
 } from '@nestjs/common';
 import { MikroORM } from '@mikro-orm/core';
 import { MikroOrmMiddleware, MikroOrmModule } from '@mikro-orm/nestjs';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [MikroOrmModule.forRoot()],
+  imports: [MikroOrmModule.forRoot(), UserModule],
   controllers: [],
   providers: [],
 })
