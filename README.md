@@ -21,7 +21,9 @@ $ yarn install
 
 ```bash
  Update .env file
- npx mikro-orm migration:create --initial
+ npx mikro-orm migration:create --initial    # generates the migration file
+ npx mikro-orm seeder:create DatabaseSeeder  # generates the class DatabaseSeeder
+ npx mikro-orm seeder:run                   # runs the seeders
 ```
 
 ## Running the app
