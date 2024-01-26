@@ -1,9 +1,9 @@
 import { ExecutionContext, createParamDecorator } from '@nestjs/common';
 import jwt from 'jsonwebtoken';
-
-const SECRET = 'secret-key';
+import { configurations } from '../config';
 
 export const User = createParamDecorator((data, ctx: ExecutionContext) => {
+  const { SECRET } = configurations();
   const req = ctx.switchToHttp().getRequest();
 
   // if route is protected, there is a user set in auth.middleware
