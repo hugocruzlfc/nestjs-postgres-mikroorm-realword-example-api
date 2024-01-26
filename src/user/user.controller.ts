@@ -16,7 +16,7 @@ import { IUserRO } from './user.interface';
 import { UserService } from './user.service';
 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { ValidationPipe } from 'src/shared/validations/validation.pipe';
+import { ValidationPipe } from '../shared';
 
 @ApiBearerAuth()
 @ApiTags('user')

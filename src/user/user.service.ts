@@ -8,7 +8,7 @@ import { User } from './user.entity';
 import { IUserRO } from './user.interface';
 import { UserRepository } from './user.repository';
 import { ConfigService } from '@nestjs/config';
-import { EnvironmentVariables } from 'src/config';
+import { EnvironmentVariables } from '../config';
 
 @Injectable()
 export class UserService {

@@ -3,7 +3,7 @@ import { TagService } from './tag.service';
 import { TagController } from './tag.controller';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Tag } from './tag.entity';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from '../user/user.module';
 
 @Module({
   providers: [TagService],

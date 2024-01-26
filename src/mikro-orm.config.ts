@@ -17,4 +17,7 @@ export default defineConfig({
   highlighter: new SqlHighlighter(),
   metadataProvider: TsMorphMetadataProvider,
   extensions: [Migrator, EntityGenerator, SeedManager],
+  migrations: {
+    snapshot: false,
+  },
 });
