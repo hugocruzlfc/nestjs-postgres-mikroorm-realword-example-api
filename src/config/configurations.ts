@@ -1,5 +1,6 @@
 export default () => ({
   secret: process.env.SECRET,
+  NODE_ENV: process.env.NODE_ENV,
 });
 
 // export default () => ({
